@@ -18,4 +18,5 @@ SELECT a.*
 FROM hired_after_2021 a
 LEFT JOIN employees_hired_2021 b
 ON a.department_id = b.department_id AND a.department = b.department
-WHERE a.hired > b.hired;
+WHERE a.hired > b.hired
+ORDER BY a.hired DESC;
