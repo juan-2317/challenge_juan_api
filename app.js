@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var loadDepartmentsRouter = require('./routes/load_departments');
 var loadHiredEmployeesRouter = require('./routes/load_hired_employees');
 var loadJobs = require('./routes/load_jobs');
+var requerimentsRead = require('./routes/requeriments_read');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use('/users', usersRouter);
 app.use('/load_departments', loadDepartmentsRouter);
 app.use('/load_hired_employees', loadHiredEmployeesRouter);
 app.use('/load_jobs', loadJobs);
+app.use('/requeriments_read', requerimentsRead);
 
 
 // catch 404 and forward to error handler
