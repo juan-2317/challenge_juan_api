@@ -31,20 +31,15 @@ let storage = multer.diskStorage({
 
 let upload = multer({
     storage: storage
-})
-// Create the connection to MySQL
-const pool = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "challengeglobant"
-})
+});
+
+pool = require('../database');
 
 router.post('/load_jobs/import-csv', upload.single('file'), (req, res) => { // 'file': Hace referencia al name del html
     console.log(req.file.path);
     uploadCsv("uploads/" + req.file.filename);
     res.send("Records imported!");
-})
+});
 
 function uploadCsv(path) {
     let stream = fs.createReadStream(path);
@@ -96,7 +91,7 @@ function uploadCsv(path) {
 
 router.get('/load_jobs', (req, res, next) => {
     res.render("load_jobs.ejs");
-})
+});
 
 
 
